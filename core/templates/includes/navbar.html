@@ -4,7 +4,7 @@
 <header class="flex flex-wrap  md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
   <nav class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center gap-x-1">
-      <a class="flex-none font-semibold text-xl text-black focus:outline-hidden focus:opacity-80 dark:text-white" href="#" aria-label="Brand">KIAMI</a>
+      <a class="flex-none font-semibold text-xl text-black focus:outline-hidden focus:opacity-80 dark:text-white" href="{% url 'home' %}" aria-label="Brand">KIAMI</a>
 
       <!-- Collapse Button -->
       <button @click="open = !open" type="button" class="md:hidden relative size-9 flex justify-center items-center font-medium text-sm rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-expanded="open" aria-label="Toggle navigation">
@@ -41,6 +41,10 @@
               <a class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="{% url 'food' %}">
                 <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
                 Orders
+              </a>
+              <a class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="{% url 'vendor_signup' %}">
+                <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                Become a seller
               </a>
             </div>
           </div>
@@ -95,13 +99,13 @@
                   </div>
 
                   <div class="p-2">
-                      <a
-                        type="submit"
-                        class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
-                        role="menuitem"
-                        href="#"
-                      >
-                        <svg
+                      <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                      
+                        </svg>
+                        <button type="submit" class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50">
+                          Logout
+                          <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
                           viewBox="0 0 24 24"
@@ -114,9 +118,8 @@
                             stroke-linejoin="round"
                             d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
                           />
-                        </svg>
-                        Logout
-                      </a>
+                        </button>
+                      </form>
 
                   </div>
 
@@ -125,8 +128,8 @@
               </div>
         {% else %}
 
-          <a href="#" class="block text-gray-800 hover:bg-gray-100 rounded-lg px-2 py-1">Login</a>
-          <a href="{% url 'customer_signup' %}" class="block text-gray-800 hover:bg-gray-100 rounded-lg px-2 py-1">Register</a> 
+          <a href="{% url 'login' %}" class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">Login</a>
+          <a href="{% url 'customer_signup' %}" class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">Register</a> 
 
         {% endif %}
           <div class="my-2 md:my-0 md:mx-2">
