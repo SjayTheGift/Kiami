@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-
+    
     <section id='home' class="h-screen relative flex flex-col justify-center items-center text-black inset-0 z-0 py-12 px-6">
-        
+        <div x-data="{ show: false }">
+            {% include 'includes/toast.html' %}
+        </div>
             <div class="z-10 absolute text-center px-4 sm:px-[40px]">
                 <h1 class="text-5xl md:text-7xl font-bold mb-4">Delicious Meals <br/> <span class="text-primary">Delivered to Your Door<span/></h1>
                 <p class="text-3xl md:text-4xl mb-8">Enjoy fresh, flavorful meals made with the finest ingredients, <br/> 

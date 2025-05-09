@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import User
 
 class VendorSignupForm(UserCreationForm):
@@ -42,3 +42,9 @@ class CustomerSignupForm(UserCreationForm):
         if commit:
             user.save()
         return user
+    
+class CustomUserChangeForm(UserChangeForm):
+
+    class Meta:
+        model = User
+        fields = ("email",)
