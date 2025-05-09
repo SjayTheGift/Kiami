@@ -38,6 +38,10 @@
                 <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
                 Shop
               </a>
+              <a class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="{% url 'food' %}">
+                <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                Orders
+              </a>
             </div>
           </div>
 
@@ -51,81 +55,87 @@
                 <i class="fa-solid fa-user"></i>
             </a>  {% endcomment %}
 
-            <a href="#" class="block text-gray-800 hover:bg-gray-100 rounded-lg px-2 py-1">Sign in</a>
-            <a href="#" class="block text-gray-800 hover:bg-gray-100 rounded-lg px-2 py-1">Sign up</a> 
-
-            
-            <a href="" class="text-white px-4 py-2 rounded-full bg-primary hover:bg-red-700 w-[70px]">
-                <i class="fas fa-shopping-cart mr-1"></i> 0
-            </a>
-
-            <div class="md:relative" x-data="{ isOpen: false }">
-          <button
-            type="button"
-            class="overflow-hidden rounded-full border border-gray-300 shadow-inner"
-            @click="isOpen = !isOpen"
-          >
-            <span class="sr-only">Toggle dashboard menu</span>
-
-            <img
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-              class="size-10 object-cover"
-            />
-          </button>
-
-          <div
-            x-show="isOpen" @click.outside="isOpen = false"
-            class="absolute z-50 w-[50%] md:end-0 md:z-10 md:mt-0.5 md:w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
-            role="menu"
-          >
-            <div class="p-2">
-              <a
-                href="#"
-                class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                role="menuitem"
-              >
-                My profile
-              </a>
-
-              <a
-                href="#"
-                class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                role="menuitem"
-              >
-                Edit profile
-              </a>
-            </div>
-
-            <div class="p-2">
-                <a
-                  type="submit"
-                  class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
-                  role="menuitem"
-                  href="#"
+            {% if user.is_authenticated %}
+              <div class="md:relative" x-data="{ isOpen: false }">
+                <button
+                  type="button"
+                  class="overflow-hidden rounded-full border border-gray-300 shadow-inner"
+                  @click="isOpen = !isOpen"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="size-4"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
-                    />
-                  </svg>
-                  Logout
-                </a>
+                  <span class="sr-only">Toggle dashboard menu</span>
 
-            </div>
+                  <img
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""
+                    class="size-10 object-cover"
+                  />
+                </button>
 
+                <div
+                  x-show="isOpen" @click.outside="isOpen = false"
+                  class="absolute z-50 w-[50%] md:end-0 md:z-10 md:mt-0.5 md:w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
+                  role="menu"
+                >
+                  <div class="p-2">
+                    <a
+                      href="#"
+                      class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                      role="menuitem"
+                    >
+                      My profile
+                    </a>
+
+                    <a
+                      href="#"
+                      class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                      role="menuitem"
+                    >
+                      Edit profile
+                    </a>
+                  </div>
+
+                  <div class="p-2">
+                      <a
+                        type="submit"
+                        class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
+                        role="menuitem"
+                        href="#"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="size-4"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                          />
+                        </svg>
+                        Logout
+                      </a>
+
+                  </div>
+
+                </div>
+                <!-- End Button Group -->
+              </div>
+        {% else %}
+
+          <a href="#" class="block text-gray-800 hover:bg-gray-100 rounded-lg px-2 py-1">Login</a>
+          <a href="#" class="block text-gray-800 hover:bg-gray-100 rounded-lg px-2 py-1">Register</a> 
+
+        {% endif %}
+          <div class="my-2 md:my-0 md:mx-2">
+            <div class="w-full h-px md:w-px md:h-4 bg-gray-100 md:bg-gray-300 dark:bg-neutral-700"></div>
           </div>
-          <!-- End Button Group -->
-        </div>
+
+          <a href="" class="text-white px-4 py-2 rounded-full bg-primary hover:bg-red-700 w-[70px]">
+              <i class="fas fa-shopping-cart mr-1"></i> 0
+          </a>
       </div>
     </div>
     <!-- End Collapse -->
