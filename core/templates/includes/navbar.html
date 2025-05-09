@@ -1,0 +1,135 @@
+{% load static %}
+{% block content %}
+<!-- ========== HEADER ========== -->
+<header class="flex flex-wrap  md:justify-start md:flex-nowrap z-50 w-full bg-white border-b border-gray-200 dark:bg-neutral-800 dark:border-neutral-700">
+  <nav class="relative max-w-[85rem] w-full mx-auto md:flex md:items-center md:justify-between md:gap-3 py-2 px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center gap-x-1">
+      <a class="flex-none font-semibold text-xl text-black focus:outline-hidden focus:opacity-80 dark:text-white" href="#" aria-label="Brand">Brand</a>
+
+      <!-- Collapse Button -->
+      <button @click="open = !open" type="button" class="md:hidden relative size-9 flex justify-center items-center font-medium text-sm rounded-lg border border-gray-200 text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:border-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" aria-expanded="open" aria-label="Toggle navigation">
+        <svg x-show="!open" class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" x2="21" y1="6" y2="6"/>
+          <line x1="3" x2="21" y1="12" y2="12"/>
+          <line x1="3" x2="21" y1="18" y2="18"/>
+        </svg>
+        <svg x-show="open" class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"/>
+          <path d="m6 6 12 12"/>
+        </svg>
+        <span class="sr-only">Toggle navigation</span>
+      </button>
+      <!-- End Collapse Button -->
+    </div>
+
+    <!-- Collapse -->
+    <div x-cloak :class="[open ? 'block' : 'hidden']" id="hs-header-base" class="md:block">
+      <div class="">
+        <div class="py-2 md:py-0  flex flex-col md:flex-row md:items-center gap-0.5 md:gap-1">
+          <div class="grow">
+            <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-0.5 md:gap-1">
+
+              <a class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="#">
+                <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                About
+              </a>
+
+              <a class="p-2 flex items-center text-sm text-gray-800 hover:bg-gray-100 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" href="{% url 'food' %}">
+                <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
+                Shop
+              </a>
+            </div>
+          </div>
+
+          <div class="my-2 md:my-0 md:mx-2">
+            <div class="w-full h-px md:w-px md:h-4 bg-gray-100 md:bg-gray-300 dark:bg-neutral-700"></div>
+          </div>
+
+          <!-- Button Group -->
+          <div class="flex flex-wrap items-center gap-x-1.5">
+            {% comment %} <a href="#" class="text-white px-4 py-2 rounded-full bg-secondary hover:bg-black/80">
+                <i class="fa-solid fa-user"></i>
+            </a>  {% endcomment %}
+
+            <a href="#" class="block text-gray-800 hover:bg-gray-100 rounded-lg px-2 py-1">Sign in</a>
+            <a href="#" class="block text-gray-800 hover:bg-gray-100 rounded-lg px-2 py-1">Sign up</a> 
+
+            
+            <a href="" class="text-white px-4 py-2 rounded-full bg-primary hover:bg-red-700 w-[70px]">
+                <i class="fas fa-shopping-cart mr-1"></i> 0
+            </a>
+
+            <div class="md:relative" x-data="{ isOpen: false }">
+          <button
+            type="button"
+            class="overflow-hidden rounded-full border border-gray-300 shadow-inner"
+            @click="isOpen = !isOpen"
+          >
+            <span class="sr-only">Toggle dashboard menu</span>
+
+            <img
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+              class="size-10 object-cover"
+            />
+          </button>
+
+          <div
+            x-show="isOpen" @click.outside="isOpen = false"
+            class="absolute z-50 w-[50%] md:end-0 md:z-10 md:mt-0.5 md:w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg"
+            role="menu"
+          >
+            <div class="p-2">
+              <a
+                href="#"
+                class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem"
+              >
+                My profile
+              </a>
+
+              <a
+                href="#"
+                class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                role="menuitem"
+              >
+                Edit profile
+              </a>
+            </div>
+
+            <div class="p-2">
+                <a
+                  type="submit"
+                  class="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"
+                  role="menuitem"
+                  href="#"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+                    />
+                  </svg>
+                  Logout
+                </a>
+
+            </div>
+
+          </div>
+          <!-- End Button Group -->
+        </div>
+      </div>
+    </div>
+    <!-- End Collapse -->
+  </nav>
+</header>
+<!-- ========== END HEADER ========== -->
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<section id='home' class="relative h-screen bg-gray-100 inset-0 z-0 py-12 px-6">
+    <!-- Food Items Grid -->
+    <div class="container mx-auto px-6 py-4 grid grid-cols-1 lg:grid-cols-3 gap-6 py-8">
+        <!-- Food Item 1 (Larger Column) -->
+        <div class="col-span-2 bg-white rounded-lg shadow-lg overflow-hidden">
+
+            <div class='flex flex-row item-center'>
+                <img src="https://baconmockup.com/450/450/" alt="Food Item" class="w-54 h-64">
+
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold">Pasta Primavera</h2>
+                    <p class="text-gray-600">Delicious pasta with fresh vegetables.</p>
+                    <p class="text-gray-600">Location: Khayelitsha</p>
+                    <p class="text-lg font-bold text-primary">$12.99</p>
+                    
+                </div>
+            </div>
+
+            
+            
+        </div>
+
+        <!-- Food Item 2 (Smaller Column) -->
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold">Pasta Primavera</h2>
+                <p class="text-gray-600">Delicious pasta with fresh vegetables.</p>
+                <p class="text-lg font-bold text-primary">$12.99</p>
+                <button class="mt-2 w-full bg-primary text-white p-2 rounded-lg hover:bg-red-700">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Add more food items as needed -->
+    </div>
+</section>
+{% endblock %}

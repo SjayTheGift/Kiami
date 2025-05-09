@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Kiami TM{% endblock %}</title>
+    <link href="{% static 'output.css' %}" rel="stylesheet">  <!-- Ensure correct path --> 
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}">
+</head>
+<body x-data="{ open: false, scrolled: false }" @scroll.window="scrolled = window.scrollY > 10">
+
+    {% include 'includes/navbar.html' %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% include 'includes/footer.html' %}
+
+    <script src="{% static 'bundle.js' %}"></script>
+</body>
+</html>

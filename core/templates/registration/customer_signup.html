@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="bg-gray-50">
+
+   <div x-data="{ show: false }">
+        {% include 'includes/toast.html' %}
+    </div>
+    
+
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
+      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
+                  Create an account
+              </h1>
+              
+              <form method="POST" action="" class="space-y-4 md:space-y-6">
+                  {% csrf_token %}
+                  <div>
+                      <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900">First Name</label>
+                      <input type="text" name="first_name" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="John" required>
+                      {% if form.first_name.errors %}
+                          <div class="text-red-500 text-sm">{{ form.first_name.errors }}</div>
+                      {% endif %}
+                  </div>
+                  <div>
+                      <label for="last_name" class="block mb-2 text-sm font-medium text-gray-900">Last Name</label>
+                      <input type="text" name="last_name" id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Doe" required>
+                      {% if form.last_name.errors %}
+                          <div class="text-red-500 text-sm">{{ form.last_name.errors }}</div>
+                      {% endif %}
+                  </div>
+                  <div>
+                      <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                      <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="name@company.com" required>
+                      {% if form.email.errors %}
+                          <div class="text-red-500 text-sm">{{ form.email.errors }}</div>
+                      {% endif %}
+                  </div>
+                  <div>
+                      <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Phone</label>
+                      <input type="tel" name="phone" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="072-555-4444" required>
+                      {% if form.phone.errors %}
+                          <div class="text-red-500 text-sm">{{ form.phone.errors }}</div>
+                      {% endif %}
+                  </div>
+                  <div>
+                      <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password</label>
+                      <input type="password" name="password1" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+                      {% if form.password1.errors %}
+                          <div class="text-red-500 text-sm">{{ form.password1.errors }}</div>
+                      {% endif %}
+                  </div>
+                  <div>
+                      <label for="confirm_password" class="block mb-2 text-sm font-medium text-gray-900">Confirm password</label>
+                      <input type="password" name="password2" id="confirm_password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" required>
+                      {% if form.password2.errors %}
+                          <div class="text-red-500 text-sm">{{ form.password2.errors }}</div>
+                      {% endif %}
+                  </div>
+                  <button class="mt-2 w-full bg-secondary text-white p-2 rounded-lg hover:bg-black/80" type="submit">Create an account</button>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

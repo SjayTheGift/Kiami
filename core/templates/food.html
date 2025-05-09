@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<section id='home' class="relative h-screen bg-gray-100 inset-0 z-0 py-12 px-6">
+    <!-- Search Bar -->
+    <div class="container mx-auto px-6 py-8">
+        <div class="relative">
+            <input type="text" placeholder="Search for foods..." class="w-full p-3 pr-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" />
+            <button class="absolute right-2 top-2 p-2 text-white bg-primary rounded-lg hover:bg-red-700">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Food Items Grid -->
+    <div class="container mx-auto px-6 py-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Food Item 1 -->
+        <a href="" class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+            <img src="https://baconmockup.com/500/500/" alt="Food Item" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold">Pasta Primavera</h2>
+                <p class="text-gray-600">Delicious pasta with fresh vegetables.</p>
+                <p class="text-lg font-bold text-primary">$12.99</p>
+                <button class="mt-2 w-full bg-primary text-white p-2 rounded-full hover:bg-red-700">Add to Cart</button>
+            </div>
+        </a>
+
+        <!-- Food Item 2 -->
+        <a href="" class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+            <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold">Caesar Salad</h2>
+                <p class="text-gray-600">Crisp romaine lettuce with Caesar dressing.</p>
+                <p class="text-lg font-bold text-primary">$9.99</p>
+                <button class="mt-2 w-full bg-primary text-white p-2 rounded-full hover:bg-red-700">Add to Cart</button>
+            </div>
+        </a>
+
+        <!-- Food Item 3 -->
+        <a href="" class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+            <img src="https://baconmockup.com/360/360/" alt="Food Item" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold">Margherita Pizza</h2>
+                <p class="text-gray-600">Classic pizza with fresh mozzarella and basil.</p>
+                <p class="text-lg font-bold text-primary">$14.99</p>
+                <button class="mt-2 w-full bg-primary text-white p-2 rounded-full hover:bg-red-700">Add to Cart</button>
+            </div>
+        </a>
+
+        <!-- Food Item 4 -->
+        <a href="" class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105">
+            <img src="https://baconmockup.com/450/450/" alt="Food Item" class="w-full h-48 object-cover">
+            <div class="p-4">
+                <h2 class="text-xl font-semibold">Margherita Pizza</h2>
+                <p class="text-gray-600">Classic pizza with fresh mozzarella and basil.</p>
+                <p class="text-lg font-bold text-primary">$14.99</p>
+                <button class="mt-2 w-full bg-primary text-white p-2 rounded-full hover:bg-red-700">Add to Cart</button>
+            </div>
+        </a>
+
+        <!-- Add more food items as needed -->
+    </div>
+</section>
+{% endblock %}
