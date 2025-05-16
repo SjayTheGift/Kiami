@@ -85,3 +85,17 @@ class User(AbstractBaseUser, PermissionsMixin):
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+class Address(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    address_line_1 = models.CharField(max_length=255)
+    address_line_2 = models.CharField(max_length=255, blank=True)
+    suburb = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    province = models.CharField(max_length=100)
+    postal_code = models.CharField(max_length=20)
+    # country = models.CharField(max_length=100)
+    is_default = models.BooleanField(default=False)  # For shipping/billing
+
+    def __str__(self):
+        return f"{self.address_line_1}, {self.city}, {self.province} ({self.user.email})"

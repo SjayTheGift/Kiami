@@ -1,13 +1,23 @@
 # accounts/urls.py
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from .views import vendor_signup_view, customer_signup_view, login_view
+from .views import (
+    vendor_signup_view, 
+    customer_signup_view, 
+    login_view, 
+    account_view,
+    address,
+    add_address
+    )
 
 urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='accounts/logout.html'), name='logout'),
     path('vendor/signup/', vendor_signup_view, name='vendor_signup'),
     path('customer/signup/', customer_signup_view, name='customer_signup'),
+    path('settings/', account_view, name='account_settings'),
+    path('address-book/', address, name='address_book'),
+    path('address-book/add/', add_address, name='address_book_add'),
 
     path('password-reset/', 
         auth_views.PasswordResetView.as_view(
