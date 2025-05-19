@@ -50,3 +50,14 @@ def customer_signup_view(request):
         form = CustomerSignupForm()
 
     return render(request, 'accounts/customer_signup.html', {'form': form})
+
+
+def account_view(request):
+    return render(request, 'settings/account.html')
+
+
+def address(request):
+    return render(request, 'settings/address.html')
+
+def add_address(request):
+    return render(request, 'settings/add_address.html')
