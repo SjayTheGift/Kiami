@@ -2,7 +2,7 @@
 
 {% block content %}
     
-    <section id='home' class="h-screen relative flex flex-col justify-center items-center text-black inset-0 z-0 py-12 px-6">
+    <section id='home' class="md:h-screen relative flex flex-col justify-center items-center text-black inset-0 z-0 py-12 px-6">
         <div x-data="{ show: false }">
             {% include 'includes/toast.html' %}
         </div>
@@ -16,7 +16,7 @@
                 </div>
                 <a
                     class="group rounded-lg relative inline-block text-sm font-medium text-white focus:ring-3 focus:outline-hidden"
-                    href="{% url 'food' %}"
+                    href="{% url 'food_list' %}"
                     >
                     <span class="absolute rounded-lg inset-0 border border-red-600"></span>
                     <span
