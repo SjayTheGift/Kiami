@@ -1,38 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
-<section id='home' class="relative h-screen bg-gray-100 inset-0 z-0 py-12 px-6">
-    <!-- Food Items Grid -->
-    <div class="container mx-auto px-6 py-4 grid grid-cols-1 lg:grid-cols-3 gap-6 py-8">
-        <!-- Food Item 1 (Larger Column) -->
-        <div class="col-span-2 bg-white rounded-lg shadow-lg overflow-hidden">
-
-            <div class='flex flex-row item-center'>
-                <img src="https://baconmockup.com/450/450/" alt="Food Item" class="w-54 h-64">
-
-                <div class="p-4">
-                    <h2 class="text-xl font-semibold">Pasta Primavera</h2>
-                    <p class="text-gray-600">Delicious pasta with fresh vegetables.</p>
-                    <p class="text-gray-600">Location: Khayelitsha</p>
-                    <p class="text-lg font-bold text-primary">$12.99</p>
+    <section class="bg-gray-50">
+        <div class="max-w-[85rem] w-full mx-auto h-screen py-8 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+                <div class="rounded shadow-md p-6 bg-white md:col-span-2">
                     
                 </div>
-            </div>
+                <div class="p-6">
+                    <div class="flex flex-col gap-4 items-start justify-start">
+                        <div class="rounded bg-white shadow-md  p-6 w-full">
+                            <a href="{% url 'account_settings' %}" class="flex items-center w-full text-gray-800 hover:bg-gray-300 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                                <svg class="w-6 h-6 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>              
+                                My Account
+                            </a>
+                            <a href="{% url 'address_book' %}" class="flex items-center w-full text-gray-800 hover:bg-gray-300  rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                                <svg class="w-6 h-6 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.8 13.938h-.011a7 7 0 1 0-11.464.144h-.016l.14.171c.1.127.2.251.3.371L12 21l5.13-6.248c.194-.209.374-.429.54-.659l.13-.155Z"/>
+                                </svg>
 
-            
-            
+                                Address Book
+                            </a>
+                            <a href="#" class="flex items-center w-full text-gray-800 hover:bg-gray-300  rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                                <svg class="w-6 h-6 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"/>
+                                </svg>
+                                My Orders
+                            </a>
+                            
+                            <a href="#" class="flex items-center w-full text-gray-800 hover:bg-gray-300 rounded-lg focus:outline-hidden focus:bg-gray-100 dark:text-neutral-200 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
+                                <svg class="w-6 h-6 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="square" stroke-linejoin="round" stroke-width="2" d="M10 19H5a1 1 0 0 1-1-1v-1a3 3 0 0 1 3-3h2m10 1a3 3 0 0 1-3 3m3-3a3 3 0 0 0-3-3m3 3h1m-4 3a3 3 0 0 1-3-3m3 3v1m-3-4a3 3 0 0 1 3-3m-3 3h-1m4-3v-1m-2.121 1.879-.707-.707m5.656 5.656-.707-.707m-4.242 0-.707.707m5.656-5.656-.707.707M12 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                </svg>
+
+                                Settings
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>    
         </div>
-
-        <!-- Food Item 2 (Smaller Column) -->
-        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="p-4">
-                <h2 class="text-xl font-semibold">Pasta Primavera</h2>
-                <p class="text-gray-600">Delicious pasta with fresh vegetables.</p>
-                <p class="text-lg font-bold text-primary">$12.99</p>
-                <button class="mt-2 w-full bg-primary text-white p-2 rounded-lg hover:bg-red-700">Add to Cart</button>
-            </div>
-        </div>
-
-        <!-- Add more food items as needed -->
-    </div>
-</section>
+    </section>
 {% endblock %}

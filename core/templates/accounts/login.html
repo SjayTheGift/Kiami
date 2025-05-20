@@ -39,8 +39,16 @@
                     <div class="text-primary hover:underline font-semibold">
                         <a href="{% url 'password_reset' %}" class"">Forgot Password?</a>
                     </div>
-                    <button class="mt-2 w-full bg-secondary text-white p-2 rounded-lg hover:bg-black/80"
-                            type="submit">Login
+                    <button
+                            class="w-full group relative rounded-lg inline-block text-sm font-medium text-primary focus:ring-3 focus:outline-hidden"
+                            type="submit"
+                            >
+                            <span class="w-full absolute rounded-lg inset-0 border border-current"></span>
+                            <span
+                                class="w-full block rounded-lg border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1"
+                            >
+                                Login
+                            </span>
                     </button>
                 </form>
             </div>

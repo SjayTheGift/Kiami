@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="bg-gray-50">
+    <div class="max-w-[85rem] w-full mx-auto h-screen py-8 px-4 sm:px-6 lg:px-8">
+        <div class="rounded shadow-md p-6 bg-white">
+            <h2 class="text-lg font-semibold mb-2">Confirm Deletion</h2>
+            <p>Are you sure you want to delete the following address?</p>
+            <div class="p-4 border border-gray-300 rounded-lg mb-4">
+                <p><strong>Street Address:</strong> {{ address.address_line_1 }}</p>
+                <p><strong>Complex/Building:</strong> {{ address.address_line_2 }}</p>
+                <p><strong>Suburb:</strong> {{ address.suburb }}</p>
+                <p><strong>City:</strong> {{ address.city }}</p>
+                <p><strong>Province:</strong> {{ address.province }}</p>
+                <p><strong>Postal Code:</strong> {{ address.postal_code }}</p>
+            </div>
+            <form method="POST" action="">
+                {% csrf_token %}
+                    <button
+                        class="group relative rounded-lg inline-block text-sm font-medium text-primary focus:ring-3 focus:outline-hidden"
+                        type="submit">
+                        <span class="absolute rounded-lg inset-0 border border-current"></span>
+                        <span
+                            class="block rounded-lg border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
+                            Confirm Delete
+                        </span>
+                    </button>
+                    <a href="{% url 'address_book' %}" class="group relative rounded-lg inline-block text-sm font-medium text-secondary focus:ring-3 focus:outline-hidden">
+                        <span class="absolute rounded-lg inset-0 border border-current"></span>
+                        <span class="block rounded-lg border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
+                            Cancel
+                        </span>
+                    </a>
+
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock content %}

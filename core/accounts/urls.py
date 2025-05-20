@@ -7,7 +7,10 @@ from .views import (
     login_view, 
     account_view,
     address,
-    add_address
+    add_address,
+    update_address,
+    delete_address,
+    change_password_view,
     )
 
 urlpatterns = [
@@ -15,9 +18,11 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='accounts/logout.html'), name='logout'),
     path('vendor/signup/', vendor_signup_view, name='vendor_signup'),
     path('customer/signup/', customer_signup_view, name='customer_signup'),
-    path('settings/', account_view, name='account_settings'),
+    path('profile/', account_view, name='profile'),
     path('address-book/', address, name='address_book'),
     path('address-book/add/', add_address, name='address_book_add'),
+    path('address-book/update/<int:pk>/', update_address, name='address_book_update'),
+    path('address-book/delete/<int:pk>/', delete_address, name='address_book_delete'),
 
     path('password-reset/', 
         auth_views.PasswordResetView.as_view(
@@ -41,5 +46,5 @@ urlpatterns = [
          ),
          name='password_reset_complete'),
     
-    # path('password/',  PasswordChangeView.as_view(), name='password_change')
+    path('password-change/',  change_password_view, name='password_change'),
 ]

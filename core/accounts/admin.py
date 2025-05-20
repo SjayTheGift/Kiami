@@ -2,18 +2,18 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CustomerSignupForm, CustomUserChangeForm
-from .models import User
+from .models import User, Profile, Address
 
 
 class CustomUserAdmin(UserAdmin):
     add_form = CustomerSignupForm
     form = CustomUserChangeForm
     model = User
-    list_display = ("email", "is_staff", "is_active",)
-    list_filter = ("email", "is_staff", "is_active",)
+    list_display = ("email", "is_staff", "is_active", "is_vendor", "is_customer",)
+    list_filter = ("email", "is_staff", "is_active", "is_vendor", "is_customer",)
     fieldsets = (
         (None, {"fields": ("email", "password")}),
-        ("Permissions", {"fields": ("is_staff", "is_active", "groups", "user_permissions")}),
+        ("Permissions", {"fields": ("is_staff", "is_active", "is_vendor", "is_customer", "groups", "user_permissions")}),
     )
     add_fieldsets = (
         (None, {
@@ -29,3 +29,6 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(User, CustomUserAdmin)
+
+admin.site.register(Profile)
+admin.site.register(Address)
