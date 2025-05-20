@@ -1,10 +1,9 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, AuthenticationForm ,PasswordChangeForm
 from .models import User
 
 from django import forms
-from django.contrib.auth.forms import AuthenticationForm
-from .models import User
+from .models import User, Address
 
 class LoginForm(AuthenticationForm):  # Inherit from forms.Form, not AuthenticationForm
     username = forms.EmailField(label="Email")
@@ -67,3 +66,22 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = User
         fields = ("email",)
+
+class ProfileUpdateForm(UserChangeForm):
+
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'middle_name', 'phone', 'email')
+
+class ChangePasswordForm(PasswordChangeForm):
+
+    class Meta:
+        model = User
+        fields = []
+
+
+class AddressForm(forms.ModelForm):
+    class Meta:
+        model = Address
+        fields = ['address_line_1', 'address_line_2', 'suburb', 'city', 'province', 'postal_code'] 
+

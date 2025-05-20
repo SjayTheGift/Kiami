@@ -84,7 +84,7 @@
                 >
                   <div class="p-2">
                     <a
-                      href="#"
+                      href="{% url 'profile' %}"
                       class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
                     >
@@ -92,21 +92,21 @@
                     </a>
 
                     <a
-                      href="#"
+                      href="{% url 'orders' %}"
                       class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
                     >
                       My Orders
                     </a>
                     <a
-                      href="#"
+                      href="{% url 'password_change' %}"
                       class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
                     >
                       Settings
                     </a>
                     <a
-                      href="#"
+                      href="{% url 'address_book' %}"
                       class="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
                       role="menuitem"
                     >
@@ -152,7 +152,7 @@
             <div class="w-full h-px md:w-px md:h-4 bg-gray-100 md:bg-gray-300 dark:bg-neutral-700"></div>
           </div>
 
-          <a href="" class="text-white px-4 py-2 rounded-full bg-primary hover:bg-red-700 w-[70px]">
+          <a href="{% url 'cart' %}" class="text-white px-4 py-2 rounded-full bg-primary hover:bg-red-700 w-[70px]">
               <i class="fas fa-shopping-cart mr-1"></i> 0
           </a>
       </div>

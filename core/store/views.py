@@ -13,3 +13,9 @@ def food_list(request):
 def food_details(request, id):
     food_items = "food"
     return render(request, 'food_details.html', {'food_items': food_items})
+
+def cart(request):
+    return render(request, 'cart.html')
+
+def orders(request):
+    return render(request, 'orders.html')

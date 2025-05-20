@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="bg-gray-50">
+        <div class="max-w-[85rem] w-full mx-auto h-screen py-8 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
+            
+                {% include 'includes/sidebar.html' %}
+
+                <div class="md:col-span-2">
+                        <div class="flex items-center justify-between mb-4 w-full">
+                            <h2 class="text-2xl font-semibold mb-2"> Orders</h2>
+                            <div>
+                                <div class="flex items-center gap-1">
+                                    <p for="duration" class="mb-2 block text-sm font-medium text-gray-900">Orders Placed in</p>
+                                        <select id="duration" class="block rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-primary-500 dark:focus:ring-primary-500">
+                                        <option value="3m">Last 3 months</option>
+                                        <option value="6m">Last 6 months</option>
+                                        <option value="0y">2025</option>
+                                        <option value="1y">2024</option>
+                                        <option value="2y">2023</option>
+                                        <option value="3y">2022</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="shadow-md p-6 bg-white my-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <p class="text-lg font-semibold">Delivered Thu, 31 Oct 2024</p>
+                                    <a href="#" class="group relative rounded-lg inline-block text-sm font-medium text-secondary focus:ring-3 focus:outline-hidden">
+                                        <span class="absolute rounded-lg inset-0 border border-current"></span>
+                                        <span class="block rounded-lg border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
+                                            Orders Details
+                                        </span>
+                                    </a>
+                                </div>
+                                <hr/>
+                                <div class="mt-4">
+                                    <a href="#">
+                                        <div class="flex items-center gap-3 flex-wrap md:flex-row">
+                                        <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-32 h-32 object-cover border border-current">
+                                        <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-32 h-32 object-cover border border-current">
+                                        <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-32 h-32 object-cover border border-current">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                    
+
+                            <div class="shadow-md p-6 bg-white my-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <p class="text-lg font-semibold">Delivered Thu, 31 Oct 2024</p>
+                                    <a href="#" class="group relative rounded-lg inline-block text-sm font-medium text-secondary focus:ring-3 focus:outline-hidden">
+                                        <span class="absolute rounded-lg inset-0 border border-current"></span>
+                                        <span class="block rounded-lg border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
+                                            Orders Details
+                                        </span>
+                                    </a>
+                                </div>
+                                <hr/>
+                                <div class="mt-4">
+                                    <a href="#">
+                                        <div class="flex items-center gap-3 flex-wrap md:flex-row">
+                                        <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-32 h-32 object-cover border border-current">
+                                        <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-32 h-32 object-cover border border-current">
+                                        <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-32 h-32 object-cover border border-current">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="shadow-md p-6 bg-white my-4">
+                                <div class="flex items-center justify-between mb-4">
+                                    <p class="text-lg font-semibold">Delivered Thu, 31 Oct 2024</p>
+                                    <a href="#" class="group relative rounded-lg inline-block text-sm font-medium text-secondary focus:ring-3 focus:outline-hidden">
+                                        <span class="absolute rounded-lg inset-0 border border-current"></span>
+                                        <span class="block rounded-lg border border-current bg-white px-12 py-3 transition-transform group-hover:-translate-x-1 group-hover:-translate-y-1">
+                                            Orders Details
+                                        </span>
+                                    </a>
+                                </div>
+                                <hr/>
+                                <div class="mt-4">
+                                    <a href="#">
+                                        <div class="flex items-center gap-3 flex-wrap md:flex-row">
+                                        <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-32 h-32 object-cover border border-current">
+                                        <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-32 h-32 object-cover border border-current">
+                                        <img src="https://baconmockup.com/320/320/" alt="Food Item" class="w-32 h-32 object-cover border border-current">
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div> 
+                            
+                </div>
+            </div>    
+        </div>
+    </section>
+{% endblock content %}

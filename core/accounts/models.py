@@ -86,13 +86,27 @@ class User(AbstractBaseUser, PermissionsMixin):
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f'{self.user.email} Profile'
+
 class Address(models.Model):
+    CHOICE_PROVINCE = [
+        ("EC", "Eastern Cape"),
+        ("FS", "Free State"),
+        ("GP", "Gauteng"),
+        ("KZN", "KwaZulu-Natal"),
+        ("LP", "Limpopo"),
+        ("MP", "Mpumalanga"),
+        ("NC", "Northern Cape"),
+        ("NW", "North West"),
+        ("WC", "Western Cape")
+    ]
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     address_line_1 = models.CharField(max_length=255)
     address_line_2 = models.CharField(max_length=255, blank=True)
     suburb = models.CharField(max_length=100)
     city = models.CharField(max_length=100)
-    province = models.CharField(max_length=100)
+    province = models.CharField(max_length=200, choices=CHOICE_PROVINCE)
     postal_code = models.CharField(max_length=20)
     # country = models.CharField(max_length=100)
     is_default = models.BooleanField(default=False)  # For shipping/billing
