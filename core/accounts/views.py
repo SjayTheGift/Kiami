@@ -1,5 +1,4 @@
 # accounts/views.py
-from django.http import JsonResponse
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, update_session_auth_hash, login as auth_login
@@ -46,24 +45,25 @@ def vendor_signup_view(request):
             messages.error(request, 'There were errors in your form. Please correct them and try again.')
     else:
         form = VendorSignupForm()
-    
     return render(request, 'accounts/vendor_signup.html', {'form': form})
 
 def customer_signup_view(request):
-    if request.method == 'POST':
-        form = CustomerSignupForm(request.POST)
-        if form.is_valid():
-            form.save(commit=True)  # Save the customer user
-            messages.success(request, 'Account has been created successfully.')
-            return redirect('login')  # Redirect after successful signup
+    if not request.user.is_authenticated:
+        if request.method == 'POST':
+            form = CustomerSignupForm(request.POST)
+            if form.is_valid():
+                form.save(commit=True)  # Save the customer user
+                messages.success(request, 'Account has been created successfully.')
+                return redirect('login')  # Redirect after successful signup
+            else:
+                messages.error(request, 'There were errors in your form. Please correct them and try again.')
         else:
-            messages.error(request, 'There were errors in your form. Please correct them and try again.')
-    else:
-        form = CustomerSignupForm()
+            form = CustomerSignupForm()
 
-    return render(request, 'accounts/customer_signup.html', {'form': form})
+        return render(request, 'accounts/customer_signup.html', {'form': form})
+    return redirect('home')
 
-
+@login_required
 def account_view(request):
     if request.method == "POST":
         form = ProfileUpdateForm(request.POST, instance=request.user)
@@ -77,6 +77,7 @@ def account_view(request):
         form = ProfileUpdateForm(instance=request.user)
     return render(request, 'accounts/profile.html', {'form': form})
 
+@login_required
 def change_password_view(request):
     if request.method == "POST":
         form = ChangePasswordForm(user=request.user, data=request.POST)
@@ -135,4 +136,16 @@ def delete_address(request, pk):
         address.delete()
         messages.success(request, "Address deleted successfully!")
         return redirect('address_book')
-   return JsonResponse({'address': address})
+   return render(request, 'settings/delete_confirmation.html', {'address': address})
+
+@login_required
+def set_default_address(request, pk):
+    address = get_object_or_404(Address, pk=pk, user=request.user)
+
+    # Set the selected address as default and unset others
+    Address.objects.filter(user=request.user).update(is_default=False)
+    address.is_default = True
+    address.save()
+
+    messages.success(request, "Address set as default successfully!")
+    return redirect('address_book')

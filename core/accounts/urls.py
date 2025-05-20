@@ -11,6 +11,7 @@ from .views import (
     update_address,
     delete_address,
     change_password_view,
+    set_default_address,
     )
 
 urlpatterns = [
@@ -23,6 +24,7 @@ urlpatterns = [
     path('address-book/add/', add_address, name='address_book_add'),
     path('address-book/update/<int:pk>/', update_address, name='address_book_update'),
     path('address-book/delete/<int:pk>/', delete_address, name='address_book_delete'),
+    path('address-book/default/<int:pk>/', set_default_address, name='set_default_address'),
 
     path('password-reset/', 
         auth_views.PasswordResetView.as_view(
